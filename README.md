@@ -78,13 +78,13 @@ GitHub Pages uses **GitHub Actions**. The workflow in `.github/workflows/pages.y
 
 The workflow explicitly disables submodule checkout. It exports only the committed `index.html`, `.nojekyll`, and `Docs/` paths into `_site/`, rejects symbolic links, and uploads only that directory. Private source directories and repository metadata are excluded from the website. No private-repository token is required for Pages.
 
-The separate `.github/workflows/release.yml` workflow checks the installer on pull requests and publishes changes to `Setup/` or the workflow pushed to `ceen`; it also supports manual runs on `ceen`. It updates the fixed `product-reels-fayreel` tag and Release, marks it **Latest**, and uploads only `Setup/install.sh`. Publication verifies the downloaded asset matches the source file. Submodules are not checked out, and other projects' releases are left intact. Admin and Web releases remain independent; the unified installer fetches their latest published installers each time it runs, without needing its own release to change.
+The separate `.github/workflows/release.yml` workflow checks the installer on pull requests and publishes changes to `Setup/`, `.test/`, or the workflow pushed to `ceen`; it also supports manual runs on `ceen`. It updates the fixed `product-reels-fayreel` tag and Release, marks it **Latest**, and uploads only `Setup/install.sh`. Publication verifies the downloaded asset matches the source file. Submodules are not checked out, and other projects' releases are left intact. Admin and Web releases remain independent; the unified installer fetches their latest published installers each time it runs, without needing its own release to change.
 
 To check the entrypoint locally without installing software:
 
 ```bash
 bash -n Setup/install.sh
-python3 -B -m unittest discover -s Setup/tests -v
+python3 -B -m unittest discover -s .test -v
 ```
 
 ## Downloads and repository rename

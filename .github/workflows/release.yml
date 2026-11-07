@@ -5,11 +5,13 @@ on:
     branches: [ceen]
     paths:
       - Setup/**
+      - .test/**
       - .github/workflows/release.yml
   pull_request:
     branches: [ceen]
     paths:
       - Setup/**
+      - .test/**
       - .github/workflows/release.yml
   workflow_dispatch:
 
@@ -34,7 +36,7 @@ jobs:
         run: |
           bash -n Setup/install.sh
           bash Setup/install.sh --help
-          python3 -B -m unittest discover -s Setup/tests -v
+          python3 -B -m unittest discover -s .test -v
 
   publish:
     needs: check
@@ -58,7 +60,7 @@ jobs:
         run: |
           set -euo pipefail
           git fetch --no-tags --depth=1 origin ceen
-          for source in Setup .github/workflows/release.yml; do
+          for source in Setup .test .github/workflows/release.yml; do
             if [ "$(git rev-parse "HEAD:$source")" != "$(git rev-parse "FETCH_HEAD:$source")" ]; then
               echo 'A newer installer change exists on ceen; skipping this outdated run.'
               exit 0

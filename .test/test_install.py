@@ -7,7 +7,7 @@ import tempfile
 import unittest
 
 
-INSTALLER = Path(__file__).resolve().parents[1] / 'install.sh'
+INSTALLER = Path(__file__).resolve().parents[1] / 'Setup' / 'install.sh'
 BASE_URL = 'https://github.com/ceenreels/product-reels-fayreel/releases/download'
 
 
