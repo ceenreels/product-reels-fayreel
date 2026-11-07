@@ -1,0 +1,115 @@
+name: Publish installer
+
+on:
+  push:
+    branches: [ceen]
+    paths:
+      - Setup/**
+      - .github/workflows/release.yml
+  pull_request:
+    branches: [ceen]
+    paths:
+      - Setup/**
+      - .github/workflows/release.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: fayreel-installer-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Check out public repository only
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          submodules: false
+          persist-credentials: false
+      - name: Validate installer and failure handling
+        run: |
+          bash -n Setup/install.sh
+          bash Setup/install.sh --help
+          python3 -B -m unittest discover -s Setup/tests -v
+
+  publish:
+    needs: check
+    if: github.repository == 'ceenreels/product-reels-fayreel' && github.ref == 'refs/heads/ceen' && github.event_name != 'pull_request'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ceenreels/product-reels-fayreel
+      RELEASE_TAG: product-reels-fayreel
+    steps:
+      - name: Check out public repository only
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          submodules: false
+          persist-credentials: false
+      - name: Publish the unified installer only
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch --no-tags --depth=1 origin ceen
+          for source in Setup .github/workflows/release.yml; do
+            if [ "$(git rev-parse "HEAD:$source")" != "$(git rev-parse "FETCH_HEAD:$source")" ]; then
+              echo 'A newer installer change exists on ceen; skipping this outdated run.'
+              exit 0
+            fi
+          done
+          checksum="$(sha256sum Setup/install.sh | cut -d' ' -f1)"
+          notes="$RUNNER_TEMP/fayreel-release.md"
+          cat > "$notes" <<EOF
+          # Fayreel 统一安装入口
+
+          在新服务器上依次调用最新版 Admin 和 Web 安装器：
+
+          \`\`\`bash
+          curl -fL --retry 3 https://github.com/$GH_REPO/releases/download/$RELEASE_TAG/install.sh -o install.sh
+          sudo bash install.sh
+          \`\`\`
+
+          已安装的服务器可运行 \`sudo bash install.sh --update\`。
+          需要 Linux、curl、交互终端，以及有私有镜像读取权限的 GitHub 账号和 read:packages PAT。
+          Web 的域名、证书和 Nginx 静态目录/API 路由仍按部署流程配置。
+          Admin 失败时不运行 Web；Web 失败时保留已完成的 Admin，可解决问题后重试。
+          两个组件继续使用各自的自动更新定时器。
+
+          - [Admin installer](https://github.com/$GH_REPO/releases/tag/product-reels-fayreel-admin)
+          - [Web installer](https://github.com/$GH_REPO/releases/tag/product-reels-fayreel-web)
+          - [Setup and environment variables](https://github.com/$GH_REPO/blob/$GITHUB_SHA/README.md#server-installation)
+
+          Source commit: \`$GITHUB_SHA\`
+          Installer SHA-256: \`$checksum\`
+
+          本 Release 仅上传 \`install.sh\`；不包含私有项目源码。
+          EOF
+          if gh release view "$RELEASE_TAG" --json databaseId >/dev/null 2>&1; then
+            extra="$(gh release view "$RELEASE_TAG" --json assets --jq '.assets[] | select(.name != "install.sh") | .name')"
+            if [ -n "$extra" ]; then
+              echo '::error::Unexpected assets in the unified installer release.'
+              exit 1
+            fi
+          else
+            gh release create "$RELEASE_TAG" --target "$GITHUB_SHA" \
+              --title "$RELEASE_TAG" --draft --notes-file "$notes"
+          fi
+          gh release upload "$RELEASE_TAG" Setup/install.sh --clobber
+          gh release edit "$RELEASE_TAG" --title "$RELEASE_TAG" \
+            --notes-file "$notes" --draft=false --prerelease=false --latest
+          # Keep the fixed tag's public source archive aligned with this installer.
+          gh api --method PATCH "repos/$GH_REPO/git/refs/tags/$RELEASE_TAG" \
+            -f sha="$GITHUB_SHA" -F force=true --silent
+          verify="$RUNNER_TEMP/fayreel-verify"
+          mkdir -p "$verify"
+          gh release download "$RELEASE_TAG" --pattern install.sh --dir "$verify"
+          cmp Setup/install.sh "$verify/install.sh"
+          test "$(gh release view "$RELEASE_TAG" --json assets --jq '.assets | length')" = 1
+          test "$(gh api "repos/$GH_REPO/releases/latest" --jq '.tag_name')" = "$RELEASE_TAG"
