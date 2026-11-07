@@ -1,0 +1,12 @@
+[submodule "admin"]
+	path = Admin
+	url = https://github.com/ceenreels/product-reels-fayreel-admin.git
+	branch = ceen
+[submodule "app"]
+	path = App
+	url = https://github.com/ceenreels/product-reels-fayreel-app.git
+	branch = ceen
+[submodule "web"]
+	path = Web
+	url = https://github.com/ceenreels/product-reels-fayreel-web.git
+	branch = ceen

@@ -1,0 +1,68 @@
+name: Publish documentation
+
+on:
+  push:
+    branches: [ceen]
+    paths:
+      - index.html
+      - .nojekyll
+      - Docs/**
+      - .github/workflows/pages.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    if: github.ref == 'refs/heads/ceen'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      pages: read
+    steps:
+      - name: Check out public repository only
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          submodules: false
+          persist-credentials: false
+      - name: Configure Pages
+        uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
+      - name: Assemble public documentation only
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir _site
+          git archive --format=tar HEAD index.html .nojekyll Docs | tar -xf - -C _site
+          if [ -n "$(find _site -type l -print -quit)" ]; then
+            echo '::error::Documentation must not contain symbolic links.'
+            exit 1
+          fi
+          test -f _site/index.html
+          test -f _site/Docs/Setup/index.html
+          test -f _site/Docs/Guide/index.html
+      - name: Upload documentation artifact
+        uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+        with:
+          path: _site
+          include-hidden-files: true
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy documentation
+        id: deployment
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1
