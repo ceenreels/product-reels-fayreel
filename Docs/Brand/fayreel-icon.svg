@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="stem" x1="200" y1="352" x2="430" y2="864" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F3466D"/><stop offset="1" stop-color="#FD248C"/>
+    </linearGradient>
+    <linearGradient id="top" x1="218" y1="200" x2="824" y2="352" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF8A70"/><stop offset="1" stop-color="#FA2797"/>
+    </linearGradient>
+    <linearGradient id="arm" x1="422" y1="480" x2="770" y2="650" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF796D"/><stop offset="1" stop-color="#FC328F"/>
+    </linearGradient>
+    <linearGradient id="fold" x1="260" y1="380" x2="290" y2="515" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#C81B68" stop-opacity=".55"/><stop offset="1" stop-color="#F3466D" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1024" height="1024" fill="#FFE6E4"/>
+  <path fill="url(#stem)" d="M200 390C200 240 290 160 440 160H824C824 280 770 352 650 352H422V742C422 816 378 864 300 864H200Z"/>
+  <path fill="url(#fold)" d="M200 484C246 392 326 352 422 352V450C324 450 252 484 200 550Z"/>
+  <path fill="url(#arm)" d="M422 562C470 498 528 472 610 472H770C770 584 710 650 622 650H422Z"/>
+  <path fill="url(#top)" d="M200 390C200 240 290 160 440 160H824C824 280 770 352 650 352H422C326 352 246 392 200 484Z"/>
+</svg>
