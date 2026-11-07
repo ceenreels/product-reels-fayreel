@@ -17,16 +17,17 @@ index.html
 Docs/
   Setup/
   Guide/
-Admin/    private Git submodule
-App/      private Git submodule
-Web/      private Git submodule
+Src/
+  Admin/  private Git submodule
+  App/    private Git submodule
+  Web/    private Git submodule
 ```
 
 | Submodule | Private repository | Tracking branch |
 | --- | --- | --- |
-| `Admin` | [`ceenreels/product-reels-fayreel-admin`](https://github.com/ceenreels/product-reels-fayreel-admin) | `ceen` |
-| `App` | [`ceenreels/product-reels-fayreel-app`](https://github.com/ceenreels/product-reels-fayreel-app) | `ceen` |
-| `Web` | [`ceenreels/product-reels-fayreel-web`](https://github.com/ceenreels/product-reels-fayreel-web) | `ceen` |
+| `Src/Admin` | [`ceenreels/product-reels-fayreel-admin`](https://github.com/ceenreels/product-reels-fayreel-admin) | `ceen` |
+| `Src/App` | [`ceenreels/product-reels-fayreel-app`](https://github.com/ceenreels/product-reels-fayreel-app) | `ceen` |
+| `Src/Web` | [`ceenreels/product-reels-fayreel-web`](https://github.com/ceenreels/product-reels-fayreel-web) | `ceen` |
 
 Anyone can clone this public repository to read the documentation. Developers with access to the private repositories can initialize the pinned submodule commits:
 
@@ -38,7 +39,7 @@ git submodule update --init --recursive
 
 Authenticate with an account that has access to the private repositories. The public repository stores only their URLs, paths, and commit references; credentials must never be added to `.gitmodules`.
 
-To advance a submodule to the latest `ceen` commit, run `git submodule update --remote Admin` (or `App` / `Web`), review the change, and commit the updated reference in this repository. Private source changes are committed and pushed in their respective repositories first.
+To advance a submodule to the latest `ceen` commit, run `git submodule update --remote Src/Admin` (or `Src/App` / `Src/Web`), review the change, and commit the updated reference in this repository. Private source changes are committed and pushed in their respective repositories first.
 
 ## Publishing
 
