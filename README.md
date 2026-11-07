@@ -6,9 +6,9 @@ Each project has its own fixed release tag. Application source and credentials a
 
 - [Documentation home](https://ceenreels.github.io/product-reels-fayreel-release/)
 - [Setup documentation](https://ceenreels.github.io/product-reels-fayreel-release/Documentation/)
-- [Admin user guide](https://ceenreels.github.io/product-reels-fayreel-release/How-To-Use/)
+- [Admin user guide](https://ceenreels.github.io/product-reels-fayreel-release/Guide/)
 
-The repository root contains `index.html`, `Documentation/`, and `How-To-Use/`. Open the root `index.html` locally to browse both guides with their accompanying assets.
+The repository root contains `index.html`, `Documentation/`, and `Guide/`. Open the root `index.html` locally to browse both guides with their accompanying assets.
 
 ## Publishing
 
