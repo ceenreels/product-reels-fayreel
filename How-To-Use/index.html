@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>StoryBox - Documentation</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link id="theme-style" rel="stylesheet" href="assets/css/styles.css" />
+    <script></script>
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="assets/plugins/bootstrap/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
+    />
+
+    <!-- Facebook Pixel Code -->
+    <script>
+      !(function (f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+          n.callMethod
+            ? n.callMethod.apply(n, arguments)
+            : n.queue.push(arguments);
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = "2.0";
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s);
+      })(
+        window,
+        document,
+        "script",
+        "../../../connect.facebook.net/en_US/fbevents.js"
+      );
+      fbq("init", "2223805407931076");
+      fbq("track", "PageView");
+    </script>
+    <noscript
+      ><img
+        height="1"
+        width="1"
+        style="display: none"
+        src="https://www.facebook.com/tr?id=2223805407931076&amp;ev=PageView&amp;noscript=1"
+    /></noscript>
+    <!-- End Facebook Pixel Code -->
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-88404643-1"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-88404643-1");
+    </script>
+  </head>
+
+  <body>
+    <nav>
+      <div class="menu-bar sidenav-menubar">
+        <div class="menubar-icon">
+          <span class="first-line"></span>
+          <span class="middle-line"></span>
+          <span class="last-line"></span>
+        </div>
+      </div>
+      <div class="sidebar-top">
+        <div class="brand-logo">
+          <a href="">
+            <img
+              src="./img/logo.png"
+              class="me-2"
+              style="margin-right: 20px"
+              alt=""
+            />
+            <h2 class="ms-2 logoText" style="color: #ca4a76">StoryBox</h2>
+          </a>
+        </div>
+      </div>
+      <div class="sidenav">
+        <div
+          class="doc-sidebar col-md-2 col-12 order-0 d-none d-md-flex position-fixed"
+          style="left: 0"
+        >
+          <div id="doc-nav" class="doc-nav">
+            <nav id="doc-menu" class="doc-menu sticky">
+              <div class="color">
+                <a class="nav-link scrollto" href="#introduction">
+                  <span class="svg">
+                    <img src="./assets/images/introduction.svg" />
+                  </span>
+
+                  <span style="margin-left: 10px"> Introduction </span>
+                </a>
+              </div>
+
+              <div class="color">
+                <a class="nav-link scrollto" href="#dashboard">
+                  <span>
+                    <img src="./assets/images/dashboard.svg" />
+                  </span>
+                  <span style="margin-left: 10px"> Dashboard </span>
+                </a>
+              </div>
+
+              <div class="color">
+                <a class="nav-link scrollto" href="#User">
+                  <span>
+                    <img src="./assets/images/User.svg" />
+                  </span>
+                  <span style="margin-left: 10px"> User </span>
+                </a>
+              </div>
+
+              <div class="color">
+                <a class="nav-link scrollto" href="#film-category">
+                  <span>
+                    <img src="./assets/images/FilmCategory.svg" />
+                  </span>
+                  <span style="margin-left: 10px"> Film Category </span>
+                </a>
+              </div>
+
+              <div class="color">
+                <a class="nav-link scrollto" href="#film-list">
+                  <span>
+                    <img src="./assets/images/film-list.svg" />
+                  </span>
+                  <span style="margin-left: 10px"> Film List </span>
+                </a>
+              </div>
+
+              <!-- <a class="nav-link scrollto" href="#Shorts">Shorts</a> -->
+              <div class="color">
+                <a class="nav-link scrollto" href="#episode-list">
+                  <span>
+                    <img src="./assets/images/episode-list.svg" />
+                  </span>
+                  <span style="margin-left: 10px"> Episode List </span>
+                </a>
+              </div>
+
+              <div class="color">
+                <a class="nav-link scrollto" href="#coin-plan">
+                  <span>
+                    <img src="./assets/images/coin-icon.svg" />
+                  </span>
+                  <span style="margin-left: 10px"> Coin Plan </span>
+                </a>
+              </div>
+
+              <div class="color">
+                <a class="nav-link scrollto" href="#VIP-plan">
+                  <span>
+                    <img src="./assets/images/vip.svg" />
+                  </span>
+                  <span style="margin-left: 10px"> VIP Plan </span>
+                </a>
+              </div>
+
+              <div class="color">
+                <a class="nav-link scrollto" href="#order-history">
+                  <span>
+                    <img src="./assets/images/history.svg" />
+                  </span>
+                  <span style="margin-left: 10px"> Order History </span>
+                </a>
+              </div>
+
+              <div class="color">
+                <a class="nav-link scrollto" href="#reward">
+                  <span>
+                    <img src="./assets/images/reward.svg" />
+                  </span>
+                  <span style="margin-left: 10px"> Reward </span>
+                </a>
+              </div>
+
+              <div class="color">
+                <a class="nav-link scrollto" href="#setting">
+                  <span>
+                    <img src="./assets/images/Setting.svg" />
+                  </span>
+                  <span style="margin-left: 10px"> Setting </span>
+                </a>
+              </div>
+
+              <div class="color">
+                <a class="nav-link scrollto" href="#profile">
+                  <span>
+                    <img src="./assets/images/WithdrawRequest.svg" />
+                  </span>
+                  <span style="margin-left: 10px"> Profile </span>
+                </a>
+              </div>
+
+              <div class="color mb-4">
+                <a class="nav-link scrollto" href="#contact">
+                  <span>
+                    <img src="./assets/images/Contact.svg" />
+                  </span>
+                  <span style="margin-left: 10px"> Contact Us </span>
+                </a>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <header class="header">
+      <section class="page-head">
+        <div class="menu-bar">
+          <div class="menu-bar-icon">
+            <span class="first-line"></span>
+            <span class="middle-line"></span>
+            <span class="last-line"></span>
+          </div>
+        </div>
+        <div class="page-head-inner">
+          <div class="content-tabs">
+            <div class="brand-logo logo-md">
+              <a href="">
+                <img
+                  src="./img/logo.png"
+                  class="me-2"
+                  style="margin-right: 20px"
+                  alt=""
+                />
+                <h2 class="ms-2 logoText" style="color: #ca4a76">StoryBox</h2>
+              </a>
+            </div>
+			<div class="d-flex justify-content-between align-items-center color">
+				<h1 class="padding" style="font-size: 35px">Admin Guide</h1>
+				<ul
+				class="nav nav-tabs justify-content-end"
+				id="myTab"	
+				role="tablist"
+			  >
+				<li class="nav-item" role="presentation">
+				  <a href="./index.html" class="nav-link current">Admin Panel</a>
+				</li>
+				<li class="nav-item" role="presentation">
+				  <a href="./assets/flutterDocs.html" class="nav-link">App</a>
+				</li>
+			  </ul>
+				</div>
+         
+          </div>
+        </div>
+      </section>
+    </header>
+
+    <main class="content-inner">
+      <section id="introduction" class="doc-section">
+        <h2 class="section-title">Introduction</h2>
+        <div class="list-section">
+          <ul class="mb-0">
+            <li class="lead">
+              Hello! This documentation is designed to help the admin understand
+              the functionalities of the admin panel more effectively.
+            </li>
+          </ul>
+        </div>
+      </section>
+      <!-- ---------------------------------dashboard------------------------------ -->
+      <section id="dashboard" class="doc-section">
+        <h2 class="section-title">Dashboard</h2>
+        <div class="list-section">
+          <ul class="mb-0">
+            <li class="lead">
+              This is the dashboard. The admin can select a date range to view
+              data for a specific period, as shown in the image below.
+            </li>
+            <li>
+              The dashboard displays various functionalities related to videos,
+              posts, users, and songs with date range filter data.
+            </li>
+          </ul>
+          <img
+            src="assets/images/1-Admin.png"
+            class="img-border images"
+            alt="Dashboard"
+          />
+        </div>
+      </section>
+
+      <section id="User" class="doc-section">
+        <h2 class="section-title">User</h2>
+        <div class="list-section">
+          <ul class="mb-0">
+            <li class="lead">
+              This page is part of the StoryBox Admin Panel, designed for
+              managing user accounts. It allows the admin to view, search,
+              block/unblock, and perform actions on user accounts.
+            </li>
+            <li class="lead">
+              The search bar allows the admin to find specific users by
+              entering relevant keywords such as user ID, email, username, etc.
+            </li>
+          </ul>
+          <img
+            src="assets/images/2-Admin.png"
+            class="img-border images"
+            alt="Real User Management"
+          />
+        </div>
+      </section>
+
+      <section id="film-category" class="doc-section">
+        <h2 class="section-title">Film Category</h2>
+        <div class="list-section">
+          <ul class="mb-0">
+            <li class="lead">
+              This page provides the admin with comprehensive tools to manage
+              Film Category effectively. It offers functionalities for toggle active status, and create new categories within the StoryBox platform.
+            </li>
+          </ul>
+          <img
+            src="assets/images/5-Admin.png"
+            class="img-border images"
+            alt="Category Management"
+          />
+          <ul class="mb-0">
+            <li class="lead">
+              It offers to create a new film category within the StoryBox platform.
+            </li>
+          </ul>
+          <img
+            src="assets/images/6-Admin.png"
+            class="img-border images"
+            alt="Fake Post Management"
+          />
+        </div>
+      </section>
+
+      <section id="film-list" class="doc-section">
+        <h2 class="section-title">Film list</h2>
+        <div class="list-section">
+          <ul class="mb-0">
+            <li class="lead">
+              The "Film List" page allows the admin to view, active, inactive, delete, and perform actions on the films uploaded on the StoryBox platform.
+            </li>
+          </ul>
+          <img
+            src="assets/images/7-Admin.png"
+            class="img-border images"
+            alt="film Management"
+          />
+          <ul class="mb-0">
+            <li class="lead">
+              This page allows the admin to create a new film to the StoryBox
+              platform.
+            </li>
+          </ul>
+          <img
+            src="assets/images/8-Admin.png"
+            class="img-border images"
+            alt="Fake Video Management"
+          />
+        </div>
+      </section>
+
+      <section id="episode-list" class="doc-section">
+        <h2 class="section-title">Episode List</h2>
+        <div class="list-section">
+          <ul class="mb-0">
+            <li class="lead">
+              The "Episode List" page allows the admin to view, delete, and
+              perform actions on the episodes uploaded on the StoryBox
+              platform.
+            </li>
+          </ul>
+          <img
+            src="assets/images/9-Admin.png"
+            class="img-border images"
+            alt="Report Management"
+          />
+        </div>
+      </section>
+
+      <section id="coin-plan" class="doc-section">
+        <h2 class="section-title">Coin Plan</h2>
+        <div class="list-section">
+          <ul class="mb-0">
+            <li class="lead">
+              The "Coin Plan" page allows the admin to add, view, modify, toggle active status, and perform actions on the coin plans.
+            </li>
+          </ul>
+          <img
+            src="assets/images/10-Admin.png"
+            class="img-border images"
+            alt="Song Management"
+          />
+          <ul class="mb-0">
+            <li class="lead">
+              The admin can create and manage a new coin plan within the StoryBox platform.
+            </li>
+          </ul>
+          <img
+            src="assets/images/11-Admin.png"
+            class="img-border images"
+            alt="Song Category Management"
+          />
+        </div>
+      </section>
+
+      <section id="VIP-plan" class="doc-section">
+        <h2 class="section-title">VIP Plan</h2>
+        <div class="list-section">
+          <ul class="mb-0">
+            <li class="lead">
+              The "Vip Plan" page allows the admin to add, view, modify,
+              delete, and perform actions on the VIP plans.
+            </li>
+          </ul>
+          <img
+            src="assets/images/13-Admin.png"
+            class="img-border images"
+            alt="Hashtag Management"
+          />
+        </div>
+        <div class="list-section">
+          <ul class="mb-0">
+            <li class="lead">
+              Admin can create and manage a new VIP plan within the StoryBox platform.
+            </li>
+          </ul>
+          <img
+            src="assets/images/17-Admin.png"
+            class="img-border images"
+            alt="Hashtag Management"
+          />
+        </div>
+      </section>
+
+      <section id="order-history" class="doc-section">
+        <h2 class="section-title">Order History</h2>
+        <div class="list-section">
+          <ul class="mb-0">
+            <li class="lead">
+              The "Order History" page allows the admin to view the coin plan purchase history of the users.
+            </li>
+          </ul>
+          <img
+            src="assets/images/14-Admin.png"
+            class="img-border images"
+            alt="Gift Management"
+          />
+        </div>
+        <div class="list-section">
+          <ul class="mb-0">
+            <li class="lead">
+              The "Order History" page allows the admin to view the VIP plan purchase history of the users.
+            </li>
+          </ul>
+          <img
+            src="assets/images/26-Admin.png"
+            class="img-border images"
+            alt="Gift Management"
+          />
+        </div>
+      </section>
+
+      <section id="reward" class="doc-section">
+        <h2 class="section-title">Reward</h2>
+        <div class="list-section">
+          <ul class="mb-0">
+            <li class="lead">
+              This page represents the "Ads Coin Reward" management section of the Story Box Admin Panel. Admins can configure rewards by specifying the maximum ads per day, adding or modifying reward intervals, and defining coin values.
+            </li>
+            <li>
+              The interface also provides options to edit or delete existing entries in the reward list.
+            </li>
+          </ul>
+          <img
+            src="assets/images/15-Admin.png"
+            class="img-border images"
+            alt="Currency Management"
+          />
+        </div>
+        <div class="list-section">
+          <ul class="mb-0">
+            <li class="lead">
+              This page showcases the "Daily Coin Reward" section in the Story Box Admin Panel.
+            </li>
+            <li>
+              Admins can manage rewards assigned for consecutive daily activities, specifying the reward amount, associated day, and creation date.
+            </li>
+            <li>
+              Actions like editing or deleting rewards are also available for each entry.
+            </li>
+          </ul>
+          <img
+            src="assets/images/27-Admin.png"
+            class="img-border images"
+            alt="Currency Management"
+          />
+        </div>
+        <!-- <div class="list-section">
+          <ul class="mb-0">
+            <li class="lead">
+              This page represents the "Referral Reward" section in the Story Box Admin Panel.
+            </li>
+            <li>
+              Admins can configure referral-based rewards by defining the number of members required and the coins earned per referral.
+            </li>
+            <li>
+              A submission option allows saving the reward configuration.
+            </li>
+          </ul>
+          <img
+            src="assets/images/28-Admin.png"
+            class="img-border images"
+            alt="Currency Management"
+          />
+        </div> -->
+        <div class="list-section">
+          <ul class="mb-0">
+            <li class="lead">
+              This page allows administrators to configure the login reward system by specifying the number of coins users will receive upon logging in.
+            </li>
+          </ul>
+          <img
+            src="assets/images/29-Admin.png"
+            class="img-border images"
+            alt="Currency Management"
+          />
+        </div>
+      </section>
+
+      <section id="setting" class="doc-section">
+        <h2 class="section-title">Setting</h2>
+        <div class="list-section">
+          <ul class="mb-0">
+            <li class="lead">
+              <strong>Notification Setting:</strong> Configure Firebase push notifications by adding the Private Key JSON file.
+            </li>
+            <li class="lead">
+             <strong>Non-VIP Access Setting:</strong> Set the number of free episodes accessible to non-VIP users.
+            </li>
+            <li class="lead">
+              <strong>Episode Duration Setting:</strong> Specify the duration of short episodes in seconds.
+             </li>
+             <li class="lead">
+              <strong>App Settings:</strong> Add or update links for the Privacy Policy and Terms of Use. Click Submit to save any changes.
+             </li>
+          </ul>
+          <img
+            src="assets/images/16-Admin.png"
+            class="img-border images"
+            alt="Coin Plan Management"
+          />
+        </div>
+        <div class="list-section">
+          <ul class="mb-0">
+            <li class="lead">
+              <strong>Razor Pay Setting:</strong> Enable or disable Razor Pay and configure the Razor Pay ID and Secret Key.
+            </li>
+            <li class="lead">
+             <strong>Stripe Pay Setting:</strong> Enable or disable Stripe and set the Publishable Key and Secret Key.
+            </li>
+            <li class="lead">
+              <strong>Google Play Setting:</strong> Enable or disable Google Play as a payment method.
+             </li>
+             <li class="lead">
+              <strong>Flutter Wave Setting:</strong>Enable or disable Flutter Wave and configure the Flutter Wave ID.
+             </li>
+          </ul>
+          <img
+            src="assets/images/30-Admin.png"
+            class="img-border images"
+            alt="Coin Plan Management"
+          />
+        </div>
+        <div class="list-section">
+          <ul class="mb-0">
+            <li class="lead" style="list-style-type: none;">
+              <strong>Android Settings:</strong>
+              <ul>
+                <li>Enter the Interstitial Ad ID for Android in Android Google Interstitial.</li>
+                <li>Enter the Native Ad ID for Android in Android Google Native.</li>
+              </ul>
+            </li>
+            <li class="lead" style="list-style-type: none;">
+              <strong>iOS Settings:</strong>
+              <ul>
+                <li>Enter the Interstitial Ad ID for iOS in iOS Google Interstitial.</li>
+                <li>Enter the Native Ad ID for iOS in iOS Google Native.</li>
+              </ul>
+            </li>
+          </ul>
+          <img
+          src="assets/images/31-Admin.png"
+          class="img-border images"
+          alt="Coin Plan Management"
+          />
+        </div>
+        <div class="list-section">
+          <ul class="mb-0">
+            <li class="lead">
+              This page displays and manages the platform's currency settings in a tabular format.
+            </li>
+            <li class="lead">
+              Administrators can view, add, edit, or delete currency entries, including details like the currency name, symbol, code, country code, activation status, and creation date.
+            </li>
+            <li class="lead">
+              Use the New button to add a new currency.
+            </li>
+          </ul>
+          <img
+            src="assets/images/32-Admin.png"
+            class="img-border images"
+            alt="Coin Plan Management"
+          />
+        </div>
+      </section>
+
+      <section id="profile" class="doc-section">
+        <h2 class="section-title">Profile</h2>
+        <div class="list-section">
+          <ul class="mb-0">
+            <li class="lead">
+              Here, the admin can manage their own profile, change their
+              password, name, email, and avatar.
+            </li>
+          </ul>
+          <img
+            src="assets/images/24-Admin.png"
+            class="img-border images"
+            alt="Profile Management"
+          />
+        </div>
+      </section>
+
+      <section id="contact" class="doc-section contact-blog space-start mt-4">
+        <div class="contact-blog-inner">
+          <h2 class="section-title mb-4">
+            <fontsninja-text
+              id="fontsninja-text-51"
+              class="fontsninja-family-1935"
+              >Want to talk with us?</fontsninja-text
+            >
+          </h2>
+          <p>
+            <svg
+              viewBox="0 0 24 24"
+              width="24"
+              height="24"
+              stroke="currentColor"
+              stroke-width="2"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="css-i6dzq1"
+            >
+              <circle cx="12" cy="12" r="4"></circle>
+              <path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94"></path>
+            </svg>
+            <fontsninja-text
+              id="fontsninja-text-54"
+              class="fontsninja-family-1931"
+              >Email
+              <a href="mailto:incodeslab@gmail.com"> : incodeslab@gmail.com </a>
+            </fontsninja-text>
+          </p>
+          <p>
+            <span
+              ><fontsninja-text
+                id="fontsninja-text-66"
+                class="fontsninja-family-1931"
+              >
+              </fontsninja-text>
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+                id="yourSVGIconID"
+              >
+                <g>
+                  <path fill="none" d="M0 0h24v24H0z"></path>
+                  <path
+                    fill-rule="nonzero"
+                    d="M7.253 18.494l.724.423A7.953 7.953 0 0 0 12 20a8 8 0 1 0-8-8c0 1.436.377 2.813 1.084 4.024l.422.724-.653 2.401 2.4-.655zM2.004 22l1.352-4.968A9.954 9.954 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10a9.954 9.954 0 0 1-5.03-1.355L2.004 22zM8.391 7.308c.134-.01.269-.01.403-.004.054.004.108.01.162.016.159.018.334.115.393.249.298.676.588 1.357.868 2.04.062.152.025.347-.093.537a4.38 4.38 0 0 1-.263.372c-.113.145-.356.411-.356.411s-.099.118-.061.265c.014.056.06.137.102.205l.059.095c.256.427.6.86 1.02 1.268.12.116.237.235.363.346.468.413.998.75 1.57 1l.005.002c.085.037.128.057.252.11.062.026.126.049.191.066a.35.35 0 0 0 .367-.13c.724-.877.79-.934.796-.934v.002a.482.482 0 0 1 .378-.127c.06.004.121.015.177.04.531.243 1.4.622 1.4.622l.582.261c.098.047.187.158.19.265.004.067.01.175-.013.373-.032.259-.11.57-.188.733a1.155 1.155 0 0 1-.21.302 2.378 2.378 0 0 1-.33.288 3.71 3.71 0 0 1-.125.09 5.024 5.024 0 0 1-.383.22 1.99 1.99 0 0 1-.833.23c-.185.01-.37.024-.556.014-.008 0-.568-.087-.568-.087a9.448 9.448 0 0 1-3.84-2.046c-.226-.199-.435-.413-.649-.626-.89-.885-1.562-1.84-1.97-2.742A3.47 3.47 0 0 1 6.9 9.62a2.729 2.729 0 0 1 .564-1.68c.073-.094.142-.192.261-.305.127-.12.207-.184.294-.228a.961.961 0 0 1 .371-.1z"
+                  ></path>
+                </g></svg
+              ><fontsninja-text
+                id="fontsninja-text-66"
+                class="fontsninja-family-1931"
+              >
+                Whatsapp :
+              </fontsninja-text></span
+            >
+            <a
+              href="https://web.whatsapp.com/send?phone=9909515320"
+              target="_blank"
+            >
+              <fontsninja-text
+                id="fontsninja-text-71"
+                class="fontsninja-family-1933"
+              >
+                +91 9909515320</fontsninja-text
+              >
+            </a>
+          </p>
+
+          <div class="blog-1"></div>
+        </div>
+      </section>
+    </main>
+
+    <script src="assets/plugins/jquery-3.3.1.min.js"></script>
+    <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/plugins/jquery-scrollTo/jquery.scrollTo.min.js"></script>
+    <script src="assets/plugins/stickyfill/dist/stickyfill.min.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

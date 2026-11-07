@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Fayreel 文档中心：安装配置指南与后台使用手册。">
+    <title>Fayreel · 文档中心</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+        color: #202830;
+        background: #f7f8fa;
+        line-height: 1.7;
+      }
+      * { box-sizing: border-box; }
+      body { margin: 0; }
+      a { color: inherit; }
+      a:focus-visible { outline: 3px solid #6366f1; outline-offset: 6px; }
+      .container { max-width: 1040px; margin: 0 auto; padding: 0 28px; }
+      header { border-bottom: 1px solid #e3e6ec; background: #fff; }
+      header .container { display: flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 80px; }
+      .brand { font-size: 22px; font-weight: 750; letter-spacing: -.8px; text-decoration: none; }
+      .brand span { color: #6366f1; }
+      .repo { font-size: 14px; color: #566171; text-underline-offset: 4px; }
+      main.container { padding-top: 82px; padding-bottom: 72px; }
+      .eyebrow { color: #6366f1; font-size: 12px; font-weight: 700; letter-spacing: 2px; margin: 0 0 16px; }
+      h1 { font-size: clamp(32px, 5vw, 48px); line-height: 1.25; letter-spacing: -1px; margin: 0 0 20px; }
+      .intro { color: #626d7c; font-size: 17px; margin: 0; }
+      .guides { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin-top: 48px; }
+      .guide { display: flex; flex-direction: column; padding: 32px; background: #fff; border: 1px solid #e0e4eb; border-radius: 16px; text-decoration: none; transition: border-color .15s, box-shadow .15s; }
+      .guide:hover { border-color: #8b8df5; box-shadow: 0 8px 28px #242b4810; }
+      .icon { display: grid; place-items: center; width: 48px; height: 48px; border-radius: 12px; color: #5557cb; background: #eeefff; margin-bottom: 28px; }
+      .icon svg { width: 25px; height: 25px; }
+      .category { font-size: 12px; color: #7a8392; letter-spacing: 1px; margin: 0 0 8px; }
+      h2 { font-size: 23px; line-height: 1.4; margin: 0 0 14px; }
+      .description { color: #626d7c; margin: 0 0 32px; font-size: 15px; }
+      .read { color: #5557cb; margin-top: auto; font-size: 14px; font-weight: 600; }
+      .read span { margin-left: 8px; }
+      .note { color: #7a8392; font-size: 13px; margin-top: 24px; }
+      footer .container { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; padding-top: 24px; padding-bottom: 32px; border-top: 1px solid #e3e6ec; color: #7a8392; font-size: 13px; }
+      footer a { text-underline-offset: 4px; }
+      @media (max-width: 640px) {
+        .container { padding-left: 20px; padding-right: 20px; }
+        header .container { min-height: 68px; }
+        main.container { padding-top: 48px; padding-bottom: 40px; }
+        .guides { grid-template-columns: 1fr; gap: 16px; margin-top: 32px; }
+        .guide { padding: 26px; }
+        .icon { margin-bottom: 20px; }
+      }
+      @media (prefers-reduced-motion: reduce) { .guide { transition: none; } }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <a class="brand" href="./" aria-label="Fayreel 文档首页">Fayreel<span>.</span></a>
+        <a class="repo" href="https://github.com/ceenreels/product-reels-fayreel-release/tree/ceen">GitHub 仓库 ↗</a>
+      </div>
+    </header>
+    <main class="container">
+      <p class="eyebrow">FAYREEL DOCUMENTATION</p>
+      <h1>文档中心</h1>
+      <p class="intro">从环境配置到后台操作，在这里找到你需要的指南。</p>
+      <nav class="guides" aria-label="文档导航">
+        <a class="guide" href="./Documentation/index.html">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="7" rx="2"/><rect x="3" y="14" width="18" height="7" rx="2"/><path d="M7 6.5h.01M7 17.5h.01M11 6.5h6M11 17.5h6"/></svg>
+          </div>
+          <p class="category" lang="en">SETUP &amp; CONFIGURATION</p>
+          <h2>安装与配置</h2>
+          <p class="description">了解运行环境、服务器与域名配置、后台安装、数据库导入及存储服务设置。</p>
+          <span class="read">阅读安装文档<span aria-hidden="true">→</span></span>
+        </a>
+        <a class="guide" href="./How-To-Use/index.html">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v15M12 5C9 3 5 3 2 4v15c3-1 7-1 10 1 3-2 7-2 10-1V4c-3-1-7-1-10 1Z"/><path d="M6 8h2M6 12h2M16 8h2M16 12h2"/></svg>
+          </div>
+          <p class="category" lang="en">ADMIN USER GUIDE</p>
+          <h2>后台使用手册</h2>
+          <p class="description">查看仪表盘、用户与剧集管理、金币和会员套餐、订单、奖励及系统设置的操作说明。</p>
+          <span class="read">阅读使用手册<span aria-hidden="true">→</span></span>
+        </a>
+      </nav>
+      <p class="note">以上为项目随附的英文文档，包含操作步骤与截图。</p>
+    </main>
+    <footer>
+      <div class="container">
+        <span>Fayreel · 文档与下载</span>
+        <a href="https://github.com/ceenreels/product-reels-fayreel-release/releases">查看发布版本 ↗</a>
+      </div>
+    </footer>
+  </body>
+</html>

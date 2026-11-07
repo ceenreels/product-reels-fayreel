@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>S3 Bucket</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link id="theme-style" rel="stylesheet" href="assets/css/styles.css" />
+  <style>
+    /* Force override Bootstrap */
+    pre.policy-box {
+      background-color: #ffffff !important;
+      border: 1px solid #d1d5db !important;
+      border-radius: 8px !important;
+      padding: 16px !important;
+      font-family: monospace !important;
+      font-size: 14px !important;
+      line-height: 1.6 !important;
+      color: #111827 !important;
+      white-space: pre !important;
+      overflow-x: auto !important;
+    }
+  </style>
+  <script></script>
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
+    rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" />
+
+  <!-- Facebook Pixel Code -->
+  <script>
+    !(function (f, b, e, v, n, t, s) {
+      if (f.fbq) return;
+      n = f.fbq = function () {
+        n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+      };
+      if (!f._fbq) f._fbq = n;
+      n.push = n;
+      n.loaded = !0;
+      n.version = "2.0";
+      n.queue = [];
+      t = b.createElement(e);
+      t.async = !0;
+      t.src = v;
+      s = b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t, s);
+    })(window, document, "script", "../../../connect.facebook.net/en_US/fbevents.js");
+    fbq("init", "2223805407931076");
+    fbq("track", "PageView");
+  </script>
+  <noscript><img height="1" width="1" style="display: none"
+      src="https://www.facebook.com/tr?id=2223805407931076&amp;ev=PageView&amp;noscript=1" /></noscript>
+  <!-- End Facebook Pixel Code -->
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-88404643-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "UA-88404643-1");
+  </script>
+
+
+
+
+</head>
+
+<body>
+
+  <main style="margin: 0 !important; width: 100%;">
+
+
+
+
+
+    <section id="createSpaceBucket" class="doc-section">
+      <div class="h1 ms-5 my-5 ">
+        <strong>
+          How to create S3 bucket on AWS & Get Credentials
+        </strong>
+      </div>
+
+      <div class="list-section">
+        <ul>
+          <li class="lead fs-6">
+            Here’s a simple step-by-step guide to help you create an S3 bucket on AWS and get the access credentials.
+          </li>
+          <li class="lead fs-6">
+            The official AWS documentation for creating an S3 bucket
+            <a class="cursor fw-bold m-0"
+              href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-bucket-overview.html" target=" _blank">
+              click here</a>
+          <li class=" lead text-secondary fs-6 mt-3 ">
+            Sign in to the AWS Management Console, then go to the Amazon S3 Console using this link:
+            <a class=" cursor fw-bold" href=" https://console.aws.amazon.com/s3/" target=" _blank">
+              https://console.aws.amazon.com/s3/</a>
+          </li>
+          <li class=" lead text-secondary fs-6 mt-3">
+            Once you're logged into your AWS account, you'll see the main dashboard where you can explore various AWS
+            services.
+          </li>
+          <li>In the top search bar, type <b>“S3”</b>, and you'll see Amazon S3 appear in the search results (as shown
+            in the image below). Click on it to open the S3 console.</li>
+        </ul>
+        <img src="./assets/images/S3_1.png" class="img-fluid space-start shadow" alt="firebase_1" />
+
+        <ul class="">
+          <li>Now, <b>click the "Create bucket" button</b> located at the top right corner of the S3 console (as shown
+            in the image below).</li>
+        </ul>
+        <img src="./assets/images/awsbuc1.png" class="img-fluid space-start shadow mb-3" alt="firebase_1" />
+
+        <ul>
+          <li>This will open a setup wizard to create a new bucket, where you'll need to fill in a few details like the
+            bucket name.</li>
+          <li><b>The bucket name must be globally unique and should not be the same as your project name.</b></li>
+          <img src="./assets/images/awsbuc2.png" class="img-fluid space-start shadow" alt="firebase_1" />
+
+          <li>Select the "ACLs disabled" option.</li>
+          <img src="./assets/images/awsbuc3.png" class="img-fluid space-start shadow" alt="firebase_1" />
+
+          <li>Then, scroll down to see more settings.</li>
+        </ul>
+
+        <ul>
+          <li>Then, <b>uncheck all the checkboxes</b> under <b>"Block Public Access settings for this bucket"</b> to
+            allow public access.</li>
+          <li>Next, a confirmation checkbox will appear. Check this box to confirm your changes (refer to the image
+            below for guidance).</li>
+          <img src="./assets/images/awsbuc4.png" class="img-fluid space-start shadow" alt="firebase_1" />
+        </ul>
+
+        <ul>
+          <li>Don’t change anything else on this page—just leave the other settings as they are.</li>
+          <li>Then scroll down and click the <b>"Create bucket"</b> button to finish setting it up.</li>
+          <img src="./assets/images/awsbuc5.png" class="img-fluid space-start shadow" alt="firebase_1" />
+        </ul>
+
+
+        <ul>
+          <li>After the bucket is created, you’ll be taken to a new page. You’ll see a green success message at the top,
+            and <b>your newly created bucket will appear in the list below</b>.</li>
+          <img src="./assets/images/awsbuc6.png" class="img-fluid space-start shadow" alt="firebase_1" />
+        </ul>
+
+        <ul>
+          <li><b>Click on the bucket name</b> from the list, then <b>go to the "Permissions" tab</b> to manage access
+            settings.</li>
+          <img src="./assets/images/S3_7.png" class="img-fluid space-start shadow" alt="firebase_1" />
+        </ul>
+
+        <ul>
+          <li>Then, scroll down until you find the <b>"Bucket policy" section</b> under the Permissions tab.</li>
+          <li>Click on the <b>"Edit" button</b> next to the Bucket policy section to add or update the policy.</li>
+          <img src="./assets/images/S3_8.png" class="img-fluid space-start shadow" alt="firebase_1" />
+
+          <li>We’ll add a few lines of text (bucket policy) in that field. The policy is provided below.</li>
+          <div>
+            <div className="policy-container">
+              <pre class="policy-box">
+{
+                        "Version": "2012-10-17",
+                        "Statement": [
+                          {
+                            "Sid": "PublicReadGetObject",
+                            "Effect": "Allow",
+                            "Principal": "*",
+                            "Action": "s3:GetObject",
+                            "Resource": "arn:aws:s3:::demobucket069/*"
+                          }
+                        ]
+                      }
+</pre>
+
+
+            </div>
+
+
+            <li>Make sure to update the bucket name in the policy exactly as shown in the example image (highlighted in
+              green). <b>It must match your actual bucket name</b>.</li>
+            <li>After adding the policy, scroll down and click the <b>"Save changes" button</b> to apply it.</li>
+            <img src="./assets/images/S3_9.png" class="img-fluid space-start shadow" alt="firebase_1" />
+
+        </ul>
+
+        <ul>
+          <li>
+          <li>Now, we <b>need to get the necessary AWS credentials</b>.
+            <ul>
+              <li>AWS_BUCKET_NAME</li>
+              <li>AWS_REGION</li>
+              <li>AWS_ENDPOINT</li>
+              <li>AWS_HOSTNAME</li>
+              <li>AWS_ACCESS_KEY_ID</li>
+              <li>AWS_SECRET_ACCESS_KEY</li>
+            </ul>
+          </li>
+          </li>
+        </ul>
+
+        <ul>
+          <li><b>Please follow the steps below to get the credentials mentioned above</b>. These will allow your project
+            to securely access the S3 bucket.</li>
+        </ul>
+
+
+
+
+
+
+
+      </div>
+
+    </section>
+
+    <section id="createSpaceBucket" class="doc-section">
+      <div class="h3 ms-5 my-5 ">
+        <strong>
+          How to get required credentials for AWS S3 bucket
+        </strong>
+      </div>
+
+      <div class="list-section">
+        <h3>Step 1 : How to get "AWS_BUCKET" and "AWS_REGION" from AWS S3 bucket
+        </h3>
+
+        <ul class="">
+          <li>Go to the S3 section in your AWS account.</li>
+          <li>You’ll see your bucket listed there.</li>
+
+          <ul>
+            <li>
+            <li>From this page, you can find:
+              <ul>
+                <li>AWS_BUCKET (your bucket name)</li>
+                <li>AWS_REGION (the region where the bucket is hosted)</li>
+              </ul>
+            </li>
+            </li>
+
+            <li>Now you’ve successfully got your <b>AWS_BUCKET and AWS_REGION</b> values. (Refer to the image below)
+            </li>
+          </ul>
+
+
+
+        </ul>
+        <img src="./assets/images/awsbuc15.png" class="img-fluid space-start shadow mb-3" alt="firebase_1" />
+        <img src="./assets/images/awsbuc16.png" class="img-fluid space-start shadow mb-3" alt="firebase_1" />
+
+        <h3>Step 2 : How to get "AWS_ENDPOINT" and "AWS_HOSTNAME" from AWS S3 bucket
+        </h3>
+
+        <ul class="">
+
+          <li>Go to the S3 section in your AWS account.</li>
+          <li>You’ll see your bucket listed there.</li>
+          <ul>
+            <li>From this page, you can find:
+              <ul>
+                <li>
+                  <strong>AWS_HOSTNAME</strong>:
+                  Format – <code> https://{bucket-name}.s3.{region}.amazonaws.com</code>
+                  Example – <code> https://demobucket069.s3.ap-south-1.amazonaws.com</code>
+                </li>
+                <li>
+                  <strong>AWS_ENDPOINT</strong>:
+                  Format – <code> https://s3.{region}.amazonaws.com</code>
+                  Example – <code> https://s3.ap-south-1.amazonaws.com</code>
+                </li>
+              </ul>
+            </li>
+          </ul>
+
+
+          <li>Now, make sure to keep those two credentials (AWS_ENDPOINT and AWS_HOSTNAME) safe. You'll need them to
+            activate and use the AWS S3 storage in your project.</li>
+
+        </ul>
+
+        <h3>Step 3 : How to get "AWS_ACCESS_KEY_ID" and "AWS_SECRET_ACCESS_KEY" from AWS S3 bucket
+        </h3>
+
+        <ul class="">
+          <li>Go to the search bar at the top of the AWS console and <b>type “IAM”</b>.</li>
+          <li>From the results, click on the IAM service (as shown in the image below). Then, go to the <b>"Users"
+              section</b> in the IAM dashboard.</li>
+          <img src="./assets/images/IAM1.webp" class="img-fluid space-start shadow mb-3" alt="firebase_1" />
+
+          <li>In the left sidebar, click on <b>“Users”</b></li>
+          <li>Click on the blue <b>“Add users”</b> button</li>
+          <li>Set a username (e.g., s3-user)</li>
+          <li>Click Next (Refer to the image below)</li>
+          <img src="./assets/images/awsbuc7.png" class="img-fluid space-start shadow mb-3" alt="firebase_1" />
+
+          <li>You will see a step called <b>"Set permissions"</b></li>
+          <li>Choose <b>Attach policies directly</b></li>
+          <li>In the permissions step, type <b>"AmazonS3FullAccess"</b> in the search box, then <b>check the box next to
+              it to give full S3 access</b>.</li>
+          <li>Click Next</li>
+          <img src="./assets/images/awsbuc8.png" class="img-fluid space-start shadow mb-3" alt="firebase_1" />
+
+          <li>In the <b>"Review and create"</b> step, click on <b>"Create user"</b>.</li>
+          <img src="./assets/images/awsbuc9.png" class="img-fluid space-start shadow mb-3" alt="firebase_1" />
+
+          <li>Once the user is created, you will see them listed on the next screen. Find and select your new user from
+            that list.</li>
+          <img src="./assets/images/awsbuc10.png" class="img-fluid space-start shadow mb-3" alt="firebase_1" />
+
+          <li>Click on the user name</li>
+          <li>On the user summary page, click <b>“Security credentials”</b> tab</li>
+          <img src="./assets/images/awsbuc11.png" class="img-fluid space-start shadow mb-3" alt="firebase_1" />
+
+          <li>Scroll to the <b>“Access keys”</b> section</li>
+
+          <li>Click <b>“Create access key”</b></li>
+          <img src="./assets/images/awsbuc11.png" class="img-fluid space-start shadow mb-3" alt="firebase_1" />
+          <li>Choose Use cases (select “Application running outside AWS”)</li>
+          <img src="./assets/images/awsbuc13.png" class="img-fluid space-start shadow mb-3" alt="firebase_1" />
+
+          <li>Step 2: (Optional) You can add a description tag if you want, or just skip this step.</li>
+          <img src="./assets/images/awsbuc17.png" class="img-fluid space-start shadow mb-3" alt="firebase_1" />
+          <li>Then Click On, <b>Create access key</b></li>
+
+          <li>
+          <li>You'll now see:
+            <ul>
+              <li>Access key ID</li>
+              <li>Secret access key</li>
+            </ul>
+          </li>
+          </li>
+          <img src="./assets/images/awsbuc14.png" class="img-fluid space-start shadow mb-3" alt="firebase_1" />
+
+          <li>Download the <b>.csv file</b> or <b>copy both values securely</b> — you cannot see the secret again later!
+          </li>
+          <li>Now the bucket is fully configured, and you have all the necessary details and credentials needed to start
+            using it.</li>
+
+
+
+
+
+        </ul>
+
+      </div>
+
+    </section>
+
+
+
+
+    <section class="doc-section contact-blog space-start" id="contact-us">
+      <div class="contact-blog-inner">
+        <h2 class="section-title mb-4">
+          <fontsninja-text id="fontsninja-text-51" class="fontsninja-family-1935">Want to talk with
+            us?</fontsninja-text>
+        </h2>
+        <p>
+          <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"
+            stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94"></path>
+          </svg>
+          <fontsninja-text id="fontsninja-text-54" class="fontsninja-family-1931">Email
+            <a href="mailto:incodeslab@gmail.com"> : incodeslab@gmail.com </a>
+          </fontsninja-text>
+        </p>
+        <p>
+          <span><fontsninja-text id="fontsninja-text-66" class="fontsninja-family-1931"> </fontsninja-text>
+            <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <g>
+                <path fill="none" d="M0 0h24v24H0z"></path>
+                <path fill-rule="nonzero"
+                  d="M7.253 18.494l.724.423A7.953 7.953 0 0 0 12 20a8 8 0 1 0-8-8c0 1.436.377 2.813 1.084 4.024l.422.724-.653 2.401 2.4-.655zM2.004 22l1.352-4.968A9.954 9.954 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10a9.954 9.954 0 0 1-5.03-1.355L2.004 22zM8.391 7.308c.134-.01.269-.01.403-.004.054.004.108.01.162.016.159.018.334.115.393.249.298.676.588 1.357.868 2.04.062.152.025.347-.093.537a4.38 4.38 0 0 1-.263.372c-.113.145-.356.411-.356.411s-.099.118-.061.265c.014.056.06.137.102.205l.059.095c.256.427.6.86 1.02 1.268.12.116.237.235.363.346.468.413.998.75 1.57 1l.005.002c.085.037.128.057.252.11.062.026.126.049.191.066a.35.35 0 0 0 .367-.13c.724-.877.79-.934.796-.934v.002a.482.482 0 0 1 .378-.127c.06.004.121.015.177.04.531.243 1.4.622 1.4.622l.582.261c.098.047.187.158.19.265.004.067.01.175-.013.373-.032.259-.11.57-.188.733a1.155 1.155 0 0 1-.21.302 2.378 2.378 0 0 1-.33.288 3.71 3.71 0 0 1-.125.09 5.024 5.024 0 0 1-.383.22 1.99 1.99 0 0 1-.833.23c-.185.01-.37.024-.556.014-.008 0-.568-.087-.568-.087a9.448 9.448 0 0 1-3.84-2.046c-.226-.199-.435-.413-.649-.626-.89-.885-1.562-1.84-1.97-2.742A3.47 3.47 0 0 1 6.9 9.62a2.729 2.729 0 0 1 .564-1.68c.073-.094.142-.192.261-.305.127-.12.207-.184.294-.228a.961.961 0 0 1 .371-.1z">
+                </path>
+              </g>
+            </svg><fontsninja-text id="fontsninja-text-66" class="fontsninja-family-1931"> Whatsapp :
+            </fontsninja-text></span>
+          <a href="https://web.whatsapp.com/send?phone=9909515320" target=" _blank">
+            <fontsninja-text id=" fontsninja-text-71" class="fontsninja-family-1933"> +91 9909515320</fontsninja-text>
+          </a>
+        </p>
+
+        <div class="blog-1"></div>
+      </div>
+    </section>
+  </main>
+
+  <script type="text/javascript" src="assets/plugins/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="assets/plugins/jquery-scrollTo/jquery.scrollTo.min.js"></script>
+  <script type="text/javascript" src="assets/plugins/stickyfill/dist/stickyfill.min.js"></script>
+  <script type="text/javascript" src="assets/js/main.js"></script>
+</body>
+
+</html>
