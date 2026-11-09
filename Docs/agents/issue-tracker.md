@@ -14,6 +14,42 @@ respective repositories, using `.gitmodules` and each component's agent
 instructions to locate them. Link related issues for work across repositories.
 Keep public issue bodies appropriate for this public repository.
 
+## Issue before changes
+
+Direct chat is a request intake channel. When the user's request calls for a
+repository change, the agent must turn the discussion into an owning GitHub
+Issue as part of that task, without waiting for the user to ask separately or
+requiring the user to file it. This applies to bugs, features, optimizations,
+and small edits, including code, tests, scripts, configuration, documentation,
+agent instructions, and skills. Discussion and read-only investigation may
+precede an Issue; creating an implementation branch or editing repository files
+requires the following gate.
+
+1. **Locate and reuse:** verify the owning repository and search its open and
+   closed Issues. Read a matching open Issue and update it rather than duplicating
+   the task. For a closed Issue, establish recurrence before reopening it or
+   creating a distinct follow-up. Split cross-repository work into owning Issues
+   and link them; keep public reports suitable for public disclosure.
+2. **Write the agreed scope:** capture the problem or need, expected behavior,
+   affected scope, constraints, and observable acceptance criteria. For a bug,
+   include available reproduction steps and evidence. Separate facts from
+   hypotheses and mark unknowns. The Issue must be understandable without this
+   chat. If an implementation-critical detail is unresolved, record what is
+   known, ask the focused question, and keep dependent changes pending.
+3. **Publish and verify:** create or update the Issue, read it back to confirm
+   the scope was saved, and report its URL in the conversation. A local draft,
+   plan, or PR description does not satisfy this gate. If access or publication
+   fails, preserve a draft outside the repository, explain the blocker, and
+   continue only read-only work until the Issue is available.
+4. **Branch, then edit:** only after the Issue is confirmed, fetch the default
+   branch and create the task's temporary branch with its Issue number, then
+   make changes. When resuming, verify and reuse the existing Issue and task
+   branch. Preserve unrelated work and follow the delivery lifecycle below
+   where defined; reference the Issue in commits and PRs.
+5. **Keep the Issue current:** record later chat decisions and scope or acceptance
+   changes before implementing them. Split a separate request into its own Issue
+   when it does not belong to the existing task.
+
 ## Conventions
 
 - Create: `gh issue create --title "..." --body-file <file>`.
