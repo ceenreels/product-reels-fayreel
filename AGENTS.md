@@ -9,8 +9,13 @@ from its repository. Keep component issues and domain docs in that repository.
 
 ### Issue tracker
 
+For issue or spec work, read `Docs/agents/issue-tracker.md`.
+
 Use GitHub Issues in `ceenreels/product-reels-fayreel` for this repository's work.
-Before issue or spec work, read `Docs/agents/issue-tracker.md`.
+Before creating an implementation branch or editing repository files, including
+for a request made directly in chat, follow
+[Issue before changes](Docs/agents/issue-tracker.md#issue-before-changes).
+The agent must publish or update the owning Issue first.
 
 ### Triage labels
 
