@@ -10,3 +10,7 @@
 	path = Src/Web
 	url = https://github.com/ceenreels/product-reels-fayreel-web.git
 	branch = ceen
+[submodule "business"]
+	path = Business
+	url = https://github.com/ceenreels/product-reels-fayreel-business.git
+	branch = ceen

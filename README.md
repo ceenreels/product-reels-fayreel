@@ -1,6 +1,6 @@
 # Fayreel
 
-Public documentation, release downloads, and references to the private Fayreel projects. Each project has its own fixed Release tag. Application source remains in the private submodule repositories.
+Public documentation, release downloads, and references to the private Fayreel projects. Released application components have their own fixed Release tags. Application source and business materials remain in their private submodule repositories.
 
 ## Server installation
 
@@ -48,6 +48,7 @@ Setup/
 Docs/
   Setup/
   Guide/
+Business/  private business research and planning submodule
 Src/
   Admin/  private Git submodule
   App/    private Git submodule
@@ -56,11 +57,12 @@ Src/
 
 | Submodule | Private repository | Tracking branch |
 | --- | --- | --- |
+| `Business` | [`ceenreels/product-reels-fayreel-business`](https://github.com/ceenreels/product-reels-fayreel-business) | `ceen` |
 | `Src/Admin` | [`ceenreels/product-reels-fayreel-admin`](https://github.com/ceenreels/product-reels-fayreel-admin) | `ceen` |
 | `Src/App` | [`ceenreels/product-reels-fayreel-app`](https://github.com/ceenreels/product-reels-fayreel-app) | `ceen` |
 | `Src/Web` | [`ceenreels/product-reels-fayreel-web`](https://github.com/ceenreels/product-reels-fayreel-web) | `ceen` |
 
-Anyone can clone this public repository to read the documentation. Developers with access to the private repositories can initialize the pinned submodule commits:
+Anyone can clone this public repository to read the documentation. Team members with access to all private repositories can initialize the pinned submodule commits:
 
 ```bash
 git clone --branch ceen https://github.com/ceenreels/product-reels-fayreel.git
@@ -68,15 +70,36 @@ cd product-reels-fayreel
 git submodule update --init --recursive
 ```
 
-Authenticate with an account that has access to the private repositories. The public repository stores only their URLs, paths, and commit references; credentials must never be added to `.gitmodules`.
+Private repository permissions are independent of this public repository.
+Authenticate with an account that has access to each requested submodule.
+To initialize only the business workspace, use `git submodule update --init Business`.
+Public-only readers can omit initialization; recursive initialization requires
+access to every private submodule. The public repository stores only URLs, paths,
+and commit references; credentials must never be added to `.gitmodules`.
 
-To advance a submodule to the latest `ceen` commit, run `git submodule update --remote Src/Admin` (or `Src/App` / `Src/Web`), review the change, and commit the updated reference in this repository. Private source changes are committed and pushed in their respective repositories first.
+Initialization checks out a fixed commit, normally with detached HEAD. To work
+on Business, enter `Business/`, read its `AGENTS.md`, publish or update its Issue,
+then fetch and create an Issue-linked task branch from `origin/ceen`. To select
+the default branch for browsing, use `git -C Business switch ceen`; switching
+to a newer commit can make the parent show a changed submodule reference.
+
+To advance a submodule to the latest `ceen` commit, run
+`git submodule update --remote Business` (or `Src/Admin`, `Src/App`, `Src/Web`)
+after checking for local work. Review and commit the updated reference through
+this repository's Issue/PR workflow. The configured tracking branch does not
+automatically advance the parent's fixed commit. Private changes are committed,
+pushed, and merged in their owning repository first; then update the parent.
+
+Business research, operating plans, marketing, growth experiments, and commercial
+forecasts live in the private Business repository and its Issues. Product
+implementation follows linked Issues in the owning Admin, App, or Web repository.
+Business has no application release or deployment pipeline.
 
 ## Publishing
 
 GitHub Pages uses **GitHub Actions**. The workflow in `.github/workflows/pages.yml` deploys changes to the homepage, documentation, or workflow pushed to `ceen`; it can also be run manually on `ceen`.
 
-The workflow explicitly disables submodule checkout. It exports only the committed `index.html`, `.nojekyll`, and `Docs/` paths into `_site/`, rejects symbolic links, and uploads only that directory. Private source directories and repository metadata are excluded from the website. No private-repository token is required for Pages.
+The workflow explicitly disables submodule checkout. It exports only the committed `index.html`, `.nojekyll`, and `Docs/` paths into `_site/`, rejects symbolic links, and uploads only that directory. `Business/`, private source directories, and repository metadata are excluded from the website. No private-repository token is required for Pages.
 
 The separate `.github/workflows/release.yml` workflow checks the installer on pull requests and publishes changes to `Setup/`, `.test/`, or the workflow pushed to `ceen`; it also supports manual runs on `ceen`. It updates the fixed `product-reels-fayreel` tag and Release, marks it **Latest**, and uploads only `Setup/install.sh`. Publication verifies the downloaded asset matches the source file. Submodules are not checked out, and other projects' releases are left intact. Admin and Web releases remain independent; the unified installer fetches their latest published installers each time it runs, without needing its own release to change.
 
