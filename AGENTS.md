@@ -1,9 +1,12 @@
 # Agent instructions
 
-This is Fayreel's public documentation and release repository. `Src/Admin`,
-`Src/App`, and `Src/Web` are separate private Git repositories. For component
-work, read that submodule's agent instructions and run Git and GitHub commands
-from its repository. Keep component issues and domain docs in that repository.
+This is Fayreel's public documentation and release repository. `Business`,
+`Src/Admin`, `Src/App`, and `Src/Web` are separate private Git repositories.
+Before working in a submodule, read its agent instructions and run Git and
+GitHub commands from that repository. Keep its Issues and domain docs there.
+Business research and planning belong in `Business`; product implementation
+belongs in the corresponding component. Keep private findings out of public
+Issues, PRs, and `Docs/`; only explicitly authorized public summaries belong here.
 
 ## Agent skills
 

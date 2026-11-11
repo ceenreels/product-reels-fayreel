@@ -9,10 +9,13 @@ check `gh repo view --json nameWithOwner`; the target must be
 `--repo ceenreels/product-reels-fayreel` explicitly.
 
 Record public documentation, the unified installer, releases, and parent-repo
-integration work here. Record Admin, App, and Web implementation work in their
-respective repositories, using `.gitmodules` and each component's agent
-instructions to locate them. Link related issues for work across repositories.
-Keep public issue bodies appropriate for this public repository.
+integration work here. Record business research and planning in the private
+`ceenreels/product-reels-fayreel-business` repository at `Business/`; record
+Admin, App, and Web implementation in their respective repositories. Use
+`.gitmodules` and each submodule's agent instructions to locate them.
+Link related Issues for work across repositories. Public Issues and PRs contain
+only integration metadata or explicitly authorized public summaries; keep
+private research, plans, budgets, and results in their owning private repository.
 
 ## Issue before changes
 

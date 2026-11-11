@@ -8,8 +8,9 @@ Use single-context domain documentation for this public parent repository:
 - `Docs/adr/` for architecture and workflow decisions.
 
 Paths are relative to this repository root and preserve the existing `Docs/`
-capitalization. Component repositories under `Src/` maintain their own domain
-docs and agent instructions; read those when working inside a component.
+capitalization. The private `Business/` repository and component repositories
+under `Src/` maintain their own domain docs and agent instructions; read those
+when working inside a submodule.
 
 ## Before exploring
 
